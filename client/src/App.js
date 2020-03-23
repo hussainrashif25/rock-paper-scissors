@@ -83,7 +83,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       //backend URL
-      endpoint: "http://127.0.0.1:5000",
+      endpoint: "/",
       playerID: null,
       rstate: false,
       pstate: false,
