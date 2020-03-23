@@ -14,7 +14,7 @@ app.set('port', 5000);
 app.use(express.static(path.join( __dirname + 'client/build')));//Routing
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/public/index.html'));
+    res.sendFile(path.join(__dirname, 'client/build/index.html'));
 }); 
 
 io.on('connection', (socket) => {
@@ -70,7 +70,8 @@ io.on('connection', (socket) => {
     
 });
 
+const port = process.env.PORT || 5000;
 //Starts Server
-server.listen(5000, () => {
-    console.log('Starting server on port 5000');
-});
+app.listen(port);
+
+console.log('Server running on' , port)
