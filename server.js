@@ -19,28 +19,28 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
 
-    let playerIndex = -1;
+    let playerID = -1;
     for (var i in players) {
         if (players[i] === null) {
-            playerIndex = i;
+            playerID = i;
         }
     }
-    console.log('a user connected PLAYER', playerIndex);
+    console.log('a user connected PLAYER', playerID);
     
     //Emits clients player number
-    socket.emit('player-number', playerIndex);
+    socket.emit('player-number', playerID);
 
-    if (playerIndex == -1) return;
+    if (playerID == -1) return;
 
-    players[playerIndex] = socket;
+    players[playerID] = socket;
 
-    socket.broadcast.emit('player-connect', playerIndex);
+    socket.broadcast.emit('player-connect', playerID);
 
     socket.on('turn', (data) => {
         const {rstate, pstate, sstate, confirm} = data;
 
         const move = {
-            playerIndex,
+            playerID,
             rstate,
             pstate,
             sstate
@@ -57,9 +57,14 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('listen_confirm', confirmation);
     });
 
+    socket.on('reset', (data) => {
+        socket.broadcast.emit('reset_listen', data);
+
+    });
     
 
     socket.on('disconnect', (reason) => {
+        players[playerID] = null;
         console.log(reason);
     });
     
