@@ -9,12 +9,12 @@ var io = socketIO(server);
 
 const players = [null, null];
 
-app.set('port', 5000);
+//app.set('port', 5000);
 
-app.use(express.static(path.join( __dirname + 'client/build')));//Routing
+app.use(express.static(path.join(__dirname ,'client/build')));//Routing
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build/index.html'));
+    res.sendFile(path.join(__dirname, 'client','build','index.html'));
 }); 
 
 io.on('connection', (socket) => {
