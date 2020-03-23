@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "rock,paper,scissor the game",
   "main": "server.js",
+  "engines": {
+    "node": "12.14.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build && npm update"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
