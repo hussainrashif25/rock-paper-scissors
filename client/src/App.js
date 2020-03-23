@@ -236,9 +236,9 @@ class App extends React.Component {
             {hasp2confirmed}
             </h4>
           </Row>
-            <div className="hvr-float-shadow">
-              <Button onClick={()=>this.handleConfirm()}>Confirm</Button>
-              <Button onClick={()=>this.handleReset()}>Reset</Button>
+            <div>
+              <Button variant='light' size='lg' onClick={()=>this.handleConfirm()}>Confirm</Button>
+              <Button variant='dark' size='lg' onClick={()=>this.handleReset()}>Reset</Button>
             </div>
           <Row className="justify-content-md-center"> 
             
