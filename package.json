@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/hussainrashif25/rock-paper-scissors#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nodemon": "^1.19.4",
     "socket.io": "^2.3.0"
   }
